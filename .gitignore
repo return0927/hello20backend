@@ -1,0 +1,15 @@
+# IDE Files
+.idea
+.vscdoe
+.atom
+
+# Python caches and binaries
+__pycache__
+*.pyc
+*venv*
+
+# Settings
+*.ini
+*.json
+*setting*
+
