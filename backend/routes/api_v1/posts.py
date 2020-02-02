@@ -6,18 +6,7 @@ from ... import db, Post
 
 class Posts(Resource):
     def get(self):
-        print(Post.query.all())
-
         return {
             "error": False,
-            "data": [
-                {
-                    "id": 1,
-                    "author": {
-                        "id": "<- UUID ->",
-                        "nick": "고9마9웠어요"
-                    },
-                    "content": "<- AES Encrypted String ->"
-                }
-            ]
+            "data": Post.query.all()
         }, 200
