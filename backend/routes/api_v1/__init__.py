@@ -14,6 +14,7 @@ api_v1.register_error_handler(404, handle_404)
 ####################
 # Api Routes
 from .ping import api_ping
-from .posts import Posts
+from .posts import Posts, Post
 
 api.add_resource(Posts, '/posts')
+api.add_resource(Post, '/post/<int:post_id>')
