@@ -1,8 +1,13 @@
 from flask_restful import Resource
+# from flask_sqlalchemy import
+
+from ... import db, Post
 
 
 class Posts(Resource):
     def get(self):
+        print(Post.query.all())
+
         return {
             "error": False,
             "data": [
