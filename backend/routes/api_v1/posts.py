@@ -3,16 +3,25 @@ from flask_restful import Resource
 
 from ... import db, Post
 
+import traceback
+
 from typing import List
 
 
 class Posts(Resource):
     def get(self):
-        posts: List[Post] = Post.query.all()
+        try:
+            posts: List[Post] = Post.query.all()
 
-        return {
-            "error": False,
-            "data": [
-                x.to_json() for x in posts
-            ]
-        }, 200
+            return {
+                "error": False,
+                "data": [
+                    x.to_json() for x in posts
+                ]
+            }, 200
+        except:
+            return {
+                "error": True,
+                "data": [],
+                "message": traceback.format_exc()
+            }
